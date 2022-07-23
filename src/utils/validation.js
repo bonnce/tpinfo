@@ -1,0 +1,7 @@
+const validate = ()=>{
+
+}
+
+export {
+    validate
+}
