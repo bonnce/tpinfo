@@ -6,7 +6,7 @@ import Pagination from 'components/pagination';
 import SearchForm from 'components/searchForm';
 import { useState } from 'react';
 
-function App() {
+function Search() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const handleData = (newsData)=>{
@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="App container column">
+    <div className="search container column">
       <Header/>
       <SearchForm onSubmit={handleData} onLoading={handleLoading} />
       {data && (
@@ -46,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default Search;
