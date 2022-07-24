@@ -8,19 +8,39 @@ import { useState } from 'react';
 
 function App() {
   const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
   const handleData = (newsData)=>{
     setData(newsData)
   }
+
+  const handleLoading = (band)=>{
+    setLoading(band)
+  }
+
   return (
-    <div className="App">
+    <div className="App container column">
       <Header/>
-      <SearchForm onSubmit={handleData} />
-      {data &&
-      <>
-        <Pagination totalResults={data.data.totalResults} onChange={handleData} searchValue={data.searchValue} />
+      <SearchForm onSubmit={handleData} onLoading={handleLoading} />
+      {data && (
+        ((data.error || data?.data?.status === 'error') &&
+        <p className='error'>{data.error || data.data.message}</p>)
+        ||
+        (data.data &&
+        <>
+        <Pagination totalResults={data.data.totalResults} onChange={handleData} onLoading={handleLoading} 
+        searchValue={data.searchValue} />
+
         <NewsList articles={data.data.articles} />
-      </>
-      }
+
+        <Pagination totalResults={data.data.totalResults} onChange={handleData} onLoading={handleLoading} 
+        searchValue={data.searchValue} />
+      </>)
+      )}
+    { loading && 
+    <div className='loading-container container'> 
+      <div className='loading' /> 
+    </div>
+    }
       <Footer/>
     </div>
   );

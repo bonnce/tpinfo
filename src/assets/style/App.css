@@ -1,38 +1,235 @@
-.App {
+/* commons */
+
+.container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-stretch{
+  align-items: stretch;
+}
+
+.just-stretch{
+  justify-content: stretch;
+}
+
+.align-start{
+  align-items: flex-start;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.gap-sm{
+  gap:.5em
+}
+
+.gap-md{
+  gap:1em
+}
+
+.gap-lg{
+  gap:2em
+}
+
+.ms{
+  margin: .5em
+}
+
+.md{
+  margin: 1em
+}
+
+/* components */
+
+.App{
+  width:100vw;
+  height:100vh;
+  overflow-x: hidden;
+  background-color: var(--dark);
+  color:var(--light);
+  justify-content: space-between;
+}
+
+.App::-webkit-scrollbar{
+  width: 20px;
+}
+
+.App::-webkit-scrollbar-track{
+  background-color: var(--dark);
+  box-shadow: inset 0 0 5px #000;
+}
+
+.App::-webkit-scrollbar-thumb{
+  background-color: var(--red);
+  border-left: 3px solid #222;
+  border-right: 3px solid #222;
+}
+
+.App::-webkit-scrollbar-button{
+  display: none;
+}
+
+.loading-container{
+  width: 100vw;
+  height: 100%;
+  position:absolute;
+  z-index: 2;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  background-color: #0005;
+}
+
+.loading{
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  border: 5px dotted var(--red);
+  animation: spin 800ms linear infinite;
+}
+
+.header{
+  width:100%;
+  border-bottom: 1px solid var(--red);
+  height:10vh;
+}
+
+.input-pag{
+  font-size: 1em;
+  min-width: 3em;
+  flex-basis: 1;
+  padding: 0.5em;
+  font-weight: 600;
+  color: var(--light);
+  background-color: var(--red);
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000;
+  transition: color 500ms ease, background-color 500ms ease;
+}
+
+p.input-pag {
+  user-select: none;
+  cursor: auto;
+}
+
+input.input-pag:hover{
+  background-color: var(--dark-red);
+}
+
+input.input-pag:active{
+  background-color: var(--dark);
+  color: var(--red);
+}
+
+.input-pag-focused{
+  border:2px solid var(--light);
+  box-shadow: inset 0 0 3px #000;
+}
+
+.news-container{
+  padding: 1em;
+}
+
+.news{
+  position: relative;
+  align-items: stretch;
+  border: 1px solid var(--dark-red);
+  box-shadow: 1px 1px 5px #000;
+  transition: color 500ms ease;
+}
+
+.news:hover{
+  transition: color 500ms ease;
+  color:var(--red)
+}
+
+.news:hover > .news-img{
+  filter:brightness(150%);
+  transition: filter 500ms ease;
+}
+
+.news-content{
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: .5em;
+}
+
+.news-link{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.news-img{
+  width:40%;
+  transition: filter 500ms ease;
+}
+
+.input-search{
+  font-size: 2em;
+  color:var(--light);
+  border: 1px solid var(--dark-red);
+  padding:.5em;
+  transition: color 500ms ease, background-color 500ms ease, outline 500ms ease;
+}
+
+.input-search[type=text]{
+  background-color: var(--dark);
+  border-radius: .5em 0 0 .5em;
+}
+
+.input-search[type=submit]{
+  cursor: pointer;
+  border: none;
+  background-color: var(--red);
+  border-radius:  0 .5em .5em 0;
+}
+
+.input-search[type=submit]:hover{
+  background-color: var(--dark-red);
+}
+
+.input-search[type=submit]:active{
+  background-color: var(--dark);
+  color: var(--red);
+}
+
+.footer{
+  font-size: 1.1em;
+  padding: .5em;
+}
+
+.error{
+  color: var(--red);
+  font-size: 1.25em;
+  padding: 1em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* animations */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
+@keyframes spin {
+  0%{
     transform: rotate(0deg);
+    border: 5px dotted #e55;
   }
-  to {
+  50%{
+    transform: rotate(180deg);
+    border: 5px dotted #55e;
+  }
+  100%{
     transform: rotate(360deg);
+    border: 5px dotted #5e5;
   }
 }

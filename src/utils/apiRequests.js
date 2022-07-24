@@ -18,7 +18,7 @@ const getNews = async (search, page)=>{
         const data = response.data
         return data
     }catch(e){
-        return e
+        return e?.response?.data
     }
 }
 

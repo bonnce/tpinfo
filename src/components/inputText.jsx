@@ -8,7 +8,7 @@ const InputText = ({onChange})=>{
         onChange?.(value)
     }
 
-    return <input type='text' value={value} onChange={handleChange} />
+    return <input type='text' className="input-search" value={value} onChange={handleChange} />
 }
 
 export default InputText
