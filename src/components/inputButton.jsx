@@ -1,8 +1,5 @@
-const InputButton = ()=>{
-    const handleClick = ()=>{
+const InputButton = ({disabled})=>
+<input type="submit" className="input-search" value='search' disabled={disabled} />
 
-    }
-    return <input type="submit" className="input-search" value='search' onClick={handleClick} />
-}
 
 export default InputButton

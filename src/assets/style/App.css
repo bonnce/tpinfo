@@ -205,6 +205,12 @@ input.input-pag:active{
   color: var(--red);
 }
 
+.input-search[type=submit]:disabled{
+  background-color: var(--dark-red);
+  color: var(--dark);
+  cursor: auto;
+}
+
 .footer{
   font-size: 1.1em;
   padding: .5em;

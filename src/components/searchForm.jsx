@@ -2,11 +2,15 @@ import InputText from "./inputText"
 import InputButton from "./inputButton"
 import { useState } from "react"
 import getNews from "utils/apiRequests"
+import { minLength } from "utils/validation"
 
 const SearchForm = ({onSubmit, onLoading})=>{
     const [inputSearch, setInputSearch] = useState('')
+    const [disabledSubmit, setDisSubmit] = useState(true)
     const handleSearch = (value) =>{
         setInputSearch(value)
+        const valid = minLength(value,3)
+        setDisSubmit(!valid)
     }
 
     const handleSubmit = async (e)=>{
@@ -24,7 +28,7 @@ const SearchForm = ({onSubmit, onLoading})=>{
     }
     return <form onSubmit={handleSubmit} className='container md'>
         <InputText onChange={handleSearch} />
-        <InputButton />
+        <InputButton disabled={disabledSubmit} />
     </form>
 }
 
