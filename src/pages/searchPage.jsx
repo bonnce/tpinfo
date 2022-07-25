@@ -27,9 +27,6 @@ function Search() {
         ||
         (data.data &&
         <>
-        <Pagination totalResults={data.data.totalResults} onChange={handleData} onLoading={handleLoading} 
-        searchValue={data.searchValue} />
-
         <NewsList articles={data.data.articles} />
 
         <Pagination totalResults={data.data.totalResults} onChange={handleData} onLoading={handleLoading} 

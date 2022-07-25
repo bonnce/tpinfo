@@ -42,7 +42,7 @@ const Pagination = ({searchValue, onChange, onLoading})=>{
         handleChangePage()
     },[page, searchValue])
 
-    return <div className="container align-stretch gap-sm wrap md">
+    return <div className="container align-stretch gap-sm wrap md pagination">
 
         <input className="input-pag" type="button" value='<' onClick={handleBack} disabled={page === 1} />
         <input className={`input-pag ${page=== 1 ? 'input-pag-focused' : ''}`} type="button" value={1} onClick={handleClick} />       

@@ -26,7 +26,7 @@ const SearchForm = ({onSubmit, onLoading})=>{
         }
         onLoading(false)
     }
-    return <form onSubmit={handleSubmit} className='container md'>
+    return <form onSubmit={handleSubmit} className='container md full-width form-search'>
         <InputText onChange={handleSearch} />
         <InputButton disabled={disabledSubmit} />
     </form>
