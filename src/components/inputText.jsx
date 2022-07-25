@@ -8,7 +8,11 @@ const InputText = ({onChange})=>{
         onChange?.(value)
     }
 
-    return <input type='text' className="input-search" value={value} onChange={handleChange} />
+    return <div className="input-search-container">
+
+    <input type='text' className="input-search" value={value} onChange={handleChange}/>
+    <span className={`placeholder ${!value || 'hidden'}`}>Enter something to search...</span>
+    </div>
 }
 
 export default InputText

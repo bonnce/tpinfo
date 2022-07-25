@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import getNews from "utils/apiRequests"
 
-const Pagination = ({searchValue, onChange, onLoading})=>{
+const Pagination = ({totalResults, searchValue, onChange, onLoading})=>{
     const [page, setPage] = useState(1)
     const [newSearch, setNewSearch ] = useState(searchValue)
 
@@ -17,7 +17,8 @@ const Pagination = ({searchValue, onChange, onLoading})=>{
         setPage(prev => prev + 1)
     }
 
-    const maxPage = 10
+    const maxResults = Math.ceil(totalResults/10)
+    const maxPage = maxResults > 10 ? 10 : maxResults
     const maxToSee = 3
     const maxPageToSee = new Array(maxToSee).fill(0)
 
