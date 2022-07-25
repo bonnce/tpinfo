@@ -241,6 +241,7 @@ input.input-pag:active{
 .page404{
   height: 100%;
   width: 100%;
+  text-align: center;
 }
 
 .page404 h1{
@@ -251,6 +252,7 @@ input.input-pag:active{
 .page404 p{
   letter-spacing: .25em;
   line-height: 2em;
+  font-size: 1.3em;
 }
 
 .page404 p:nth-child(2){
@@ -265,7 +267,7 @@ input.input-pag:active{
   position: relative;
   text-decoration: none;
   color: var(--red);
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
   letter-spacing: .25em;
 }
@@ -383,6 +385,9 @@ input.input-pag:active{
   }
   .footer{
     font-size: .75em;
+  }
+  .page404{
+    font-size: .5em;
   }
 }
 
