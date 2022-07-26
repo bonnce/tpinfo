@@ -144,6 +144,12 @@ input.input-pag:active{
   color: var(--red);
 }
 
+input.input-pag:disabled{
+  background-color: var(--dark-red);
+  color: var(--dark);
+  cursor: auto;
+}
+
 .input-pag-focused{
   border:2px solid var(--light);
   box-shadow: inset 0 0 3px #000;

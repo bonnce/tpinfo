@@ -44,15 +44,20 @@ const Pagination = ({totalResults, searchValue, onChange, onLoading})=>{
     },[page, searchValue])
 
     return <div className="container align-stretch gap-sm wrap md pagination">
-
+        {maxPage !== 1 &&
         <input className="input-pag" type="button" value='<' onClick={handleBack} disabled={page === 1} />
+        }
         <input className={`input-pag ${page=== 1 ? 'input-pag-focused' : ''}`} type="button" value={1} onClick={handleClick} />       
         {(page) > 2 && <p className="input-pag">...</p>}
         {maxPageToSee.map((v,i)=> ((page + i ) < maxPage && (page + i) > 1) && 
         <input className={`input-pag ${i=== 0 ? 'input-pag-focused' : ''}`} type="button" key={`${searchValue}-${i}-${page}`} value={page + i} onClick={handleClick} />)}
         {(page + maxToSee) < maxPage && <p className="input-pag">...</p>}
-        <input className={`input-pag ${page=== maxPage ? 'input-pag-focused' : ''}`} type="button" value={maxPage} onClick={handleClick} />       
-        <input className="input-pag" type="button" value='>' onClick={handleNext} disabled={page === maxPage}/>
+        {maxPage !== 1 &&
+        <>
+            <input className={`input-pag ${page=== maxPage ? 'input-pag-focused' : ''}`} type="button" value={maxPage} onClick={handleClick} />       
+            <input className="input-pag" type="button" value='>' onClick={handleNext} disabled={page === maxPage}/>
+        </>
+        }
         
     </div>
 }
